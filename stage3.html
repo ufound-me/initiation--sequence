@@ -3,8 +3,7 @@
 <head>
     <title>TERMINAL</title>
     <style>
-        body 
-   {
+        body {
             margin: 0;
             background: #000;
             color: #0f0;
@@ -27,6 +26,9 @@
             text-align: center;
             width: 90%;
         }
+        #prompt {
+            margin-bottom: 10px;
+        }
         #input {
             background: #000;
             border: 1px solid #0f0;
@@ -40,17 +42,13 @@
             0%, 100% { opacity: 0; }
             50% { opacity: 0.7; }
         }
-              }
-           
     </style>
 </head>
 <body>
     <div id="code1">xyfqj 9</div> <!-- Caesar +5: "stage 4" -->
     <div id="code2">zsqhtpjii</div> <!-- Caesar +5: "unlocked" -->
-    <div id="terminal" class="glitch">>
-       <div>DECODE IT:</div>
-
-
+    <div id="terminal">
+        <div id="prompt">DECODE IT:</div>
         <input id="input" type="text" placeholder="" autocomplete="off">
         <div id="response" style="margin-top: 10px;"></div>
     </div>
@@ -58,18 +56,20 @@
     <script>
         const input = document.getElementById('input');
         const response = document.getElementById('response');
+        const prompt = document.getElementById('prompt');
 
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 if (input.value.toLowerCase() === "stage 4 unlocked") {
+                    prompt.style.display = "none"; // Hide "DECODE IT" message
+                    input.style.display = "none"; // Hide input
                     response.innerHTML = "Great work, now we goin deeper ; STAGE 4 ------>";
-                    input.style.display = "none";
                     // Redirect: window.location = "stage4.html";
                 } else {
                     response.textContent = ">";
                     input.value = "";
                 }
-      
+            }
         });
     </script>
 </body>

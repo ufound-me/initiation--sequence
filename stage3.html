@@ -45,8 +45,8 @@
     </style>
 </head>
 <body>
-    <div id="code1">xyfqj 9</div> <!-- Caesar +5: "stage 4" -->
-    <div id="code2">zsqhtpjii</div> <!-- Caesar +5: "unlocked" -->
+    <div id="code1">xyfqj9</div> <!-- Removed space to match cipher -->
+    <div id="code2">zsqhtpjii</div>
     <div id="terminal">
         <div id="prompt">DECODE IT:</div>
         <input id="input" type="text" placeholder="" autocomplete="off">
@@ -60,9 +60,10 @@
 
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                if (input.value.toLowerCase() === "stage 4 unlocked") {
-                    prompt.style.display = "none"; // Hide "DECODE IT" message
-                    input.style.display = "none"; // Hide input
+                // Now accepts both versions (with/without space)
+                if (input.value.toLowerCase().replace(/\s/g, '') === "stage4unlocked") {
+                    prompt.style.display = "none";
+                    input.style.display = "none";
                     response.innerHTML = "Great work, now we goin deeper ; STAGE 4 ------>";
                     // Redirect: window.location = "stage4.html";
                 } else {

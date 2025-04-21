@@ -3,7 +3,18 @@
 <head>
     <title>TERMINAL</title>
     <style>
-        body {
+        body 
+         @keyframes glitch {
+    0% { transform: none; opacity: 1; }
+    20% { transform: translate(-2px, 2px); opacity: 0.8; }
+    40% { transform: translate(2px, -2px); opacity: 0.6; }
+    60% { transform: translate(-1px, 1px); opacity: 0.8; }
+    80% { transform: translate(1px, -1px); opacity: 1; }
+    100% { transform: none; opacity: 1; }
+}
+.glitch {
+    animation: glitch 0.3s infinite;
+}{
             margin: 0;
             background: #000;
             color: #0f0;
@@ -40,23 +51,13 @@
             50% { opacity: 0.7; }
         }
               }
-            @keyframes glitch {
-    0% { transform: none; opacity: 1; }
-    20% { transform: translate(-2px, 2px); opacity: 0.8; }
-    40% { transform: translate(2px, -2px); opacity: 0.6; }
-    60% { transform: translate(-1px, 1px); opacity: 0.8; }
-    80% { transform: translate(1px, -1px); opacity: 1; }
-    100% { transform: none; opacity: 1; }
-}
-.glitch {
-    animation: glitch 0.3s infinite;
-}
+           
     </style>
 </head>
 <body>
     <div id="code1">xyfqj 9</div> <!-- Caesar +5: "stage 4" -->
     <div id="code2">zsqhtpjii</div> <!-- Caesar +5: "unlocked" -->
-    <div id="terminal">
+    <div id="terminal" class="glitch">>
         <div>DECODE IT:</div>
         <input id="input" type="text" placeholder="" autocomplete="off">
         <div id="response" style="margin-top: 10px;"></div>

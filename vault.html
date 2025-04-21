@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>// FILE VAULT //</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .file-list {
+      background-color: #111;
+      border: 1px dashed #00ffcc;
+      padding: 20px;
+      width: 100%;
+      max-width: 600px;
+      color: #0f0;
+    }
+    .file {
+      cursor: pointer;
+      margin: 5px 0;
+      transition: color 0.3s;
+    }
+    .file:hover {
+      color: #fff;
+    }
+    .viewer {
+      background-color: #111;
+      border: 1px solid #00ffcc;
+      padding: 15px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 600px;
+      display: none;
+    }
+    input[type="text"] {
+      background: #111;
+      color: #0f0;
+      border: 1px solid #00ffcc;
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #0e0e0e;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 20px;
+      color: #f00;
+    }
+  </style>
+</head>
+<body>
+  <h1>// FILE VAULT //</h1>
+  <div class="file-list">
+    <div class="file" onclick="openFile('keynote')">.keynote.txt</div>
+    <div class="file" onclick="openFile('logs')">logs.txt</div>
+    <div class="file" onclick="openFile('vault')">vault.jpg</div>
+    <div class="file" onclick="openFile('corrupted')">corrupted.mp4</div>
+  </div>
+
+  <div class="viewer" id="viewer"></div>
+
+  <input type="text" id="answer" placeholder="Enter the passphrase" />
+  <button onclick="checkAnswer()">SUBMIT</button>
+  <div id="message"></div>
+
+  <script>
+    function openFile(file) {
+      const viewer = document.getElementById("viewer");
+      viewer.style.display = "block";
+      switch (file) {
+        case 'keynote':
+          viewer.textContent = "Wklv lv wkh iluvw fubswlf phvvdjh...\nTime will eventually reveal more. Watch the numbers.";
+          break;
+        case 'logs':
+          viewer.textContent = "ACCESS LOG 1337 — anomaly detected\nSignal strength spiked at 13:37:00. Authorization pending...";
+          break;
+        case 'vault':
+          viewer.textContent = "[Unable to preview image file]";
+          break;
+        case 'corrupted':
+          viewer.textContent = "[File corrupted or unsupported format]";
+          break;
+      }
+    }
+
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      if (input === "leet") {
+        window.location.href = "http://access-node0.net/phase3";
+      } else {
+        document.getElementById("message").textContent = "ACCESS DENIED.";
+      }
+    }
+  </script>
+</body>
+</html>

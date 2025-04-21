@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>// INITIATION SEQUENCE //</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+    }
+    .code-block {
+      background-color: #111;
+      border: 1px dashed #00ffcc;
+      color: #0f0;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 16px;
+      width: 80%;
+      max-width: 500px;
+      word-break: break-all;
+    }
+    input[type="text"] {
+      background: #111;
+      color: #0f0;
+      border: 1px solid #00ffcc;
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #0e0e0e;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 20px;
+      color: #f00;
+    }
+    .hint {
+      margin-top: 15px;
+      color: #888;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    #hint-text {
+      margin-top: 10px;
+      color: #aaa;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>// INITIATION SEQUENCE //</h1>
+    <p>Welcome, intruder.<br />Only the observant will proceed.</p>
+    <div class="code-block">
+      [INIT: uplink://core||DATASEQ: <strong>enluZXg=</strong> //SIG_AUTH]
+    </div>
+    <p><em>"Some see noise. Others see patterns."</em></p>
+    <input type="text" id="answer" placeholder="Enter the code" />
+    <button onclick="checkAnswer()">SUBMIT</button>
+    <div class="hint" onclick="revealHint()">Need a hint?</div>
+    <div id="hint-text">🧠 Think like a machine. Encode. Decode.</div>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      if (input === "zynex") {
+        window.location.href = "http://access-node0.net/phase2"; // Mock next step
+      } else {
+        document.getElementById("message").textContent = "ACCESS DENIED.";
+      }
+    }
+
+    function revealHint() {
+      document.getElementById("hint-text").style.display = "block";
+    }
+  </script>
+</body>
+</html>

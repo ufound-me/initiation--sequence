@@ -39,6 +39,18 @@
             0%, 100% { opacity: 0; }
             50% { opacity: 0.7; }
         }
+              }
+            @keyframes glitch {
+    0% { transform: none; opacity: 1; }
+    20% { transform: translate(-2px, 2px); opacity: 0.8; }
+    40% { transform: translate(2px, -2px); opacity: 0.6; }
+    60% { transform: translate(-1px, 1px); opacity: 0.8; }
+    80% { transform: translate(1px, -1px); opacity: 1; }
+    100% { transform: none; opacity: 1; }
+}
+.glitch {
+    animation: glitch 0.3s infinite;
+}
     </style>
 </head>
 <body>
@@ -64,18 +76,7 @@
                     response.textContent = ">";
                     input.value = "";
                 }
-            }
-            @keyframes glitch {
-    0% { transform: none; opacity: 1; }
-    20% { transform: translate(-2px, 2px); opacity: 0.8; }
-    40% { transform: translate(2px, -2px); opacity: 0.6; }
-    60% { transform: translate(-1px, 1px); opacity: 0.8; }
-    80% { transform: translate(1px, -1px); opacity: 1; }
-    100% { transform: none; opacity: 1; }
-}
-.glitch {
-    animation: glitch 0.3s infinite;
-}
+      
         });
     </script>
 </body>

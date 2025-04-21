@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TERMINAL</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        #code1, #code2 {
+            position: absolute;
+            font-size: 14px;
+            opacity: 0;
+            animation: flicker 3s infinite;
+        }
+        #code1 { top: 10%; left: 5%; }
+        #code2 { bottom: 10%; right: 5%; }
+        #terminal {
+            text-align: center;
+            width: 90%;
+        }
+        #input {
+            background: #000;
+            border: 1px solid #0f0;
+            color: #0f0;
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        @keyframes flicker {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div id="code1">xyfqj 9</div> <!-- Caesar +5: "stage 4" -->
+    <div id="code2">zsqhtpjii</div> <!-- Caesar +5: "unlocked" -->
+    <div id="terminal">
+        <div>DECODE IT:</div>
+        <input id="input" type="text" placeholder="" autocomplete="off">
+        <div id="response" style="margin-top: 10px;"></div>
+    </div>
+
+    <script>
+        const input = document.getElementById('input');
+        const response = document.getElementById('response');
+
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                if (input.value.toLowerCase() === "stage 4 unlocked") {
+                    response.innerHTML = "Great work, now we goin deeper ; STAGE 4 ------>";
+                    input.style.display = "none";
+                    // Redirect: window.location = "stage4.html";
+                } else {
+                    response.textContent = ">";
+                    input.value = "";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

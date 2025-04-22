@@ -57,7 +57,7 @@
   <div id="codeInput">
     <div style="display: flex; flex-direction: row; align-items: center;">
       <input type="text" placeholder="Enter Code..." />
-      <button>Submit</button>
+     <button onclick="checkCode()">Submit</button>
     </div>
     <button onclick="revealHint()">Need a hint?</button>
     <p id="hint">Hint: The ghost doesn’t hide, he posts.</p>
@@ -94,6 +94,15 @@
         });
       }, 500);
     });
+    function checkCode() {
+  const input = document.querySelector('input[type="text"]').value.trim().toLowerCase();
+  if (input === "ghost access") {
+    window.location.href = "stage5.html"; // update this to your next stage file
+  } else {
+    alert("ACCESS DENIED.");
+  }
+}
+
   </script>
 </body>
 </html>

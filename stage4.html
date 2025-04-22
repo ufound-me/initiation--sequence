@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stage 4</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #username {
+      font-size: 2em;
+      white-space: pre;
+      text-align: center;
+    }
+    #codeInput {
+      margin-top: 40px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1.2em;
+      background-color: black;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+    }
+    button {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 1.2em;
+  background-color: transparent;
+  color: red;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+    #hint {
+  margin-top: 15px;
+  font-size: 0.95em;
+  display: none;
+  color: red;
+}
+  </style>
+</head>
+<body>
+  <div id="username"></div>
+  <div id="codeInput">
+    <div style="display: flex; flex-direction: row; align-items: center;">
+      <input type="text" placeholder="Enter Code..." />
+      <button>Submit</button>
+    </div>
+    <button onclick="revealHint()">Need a hint?</button>
+    <p id="hint">Hint: The ghost doesn’t hide, he posts.</p>
+  </div>
+
+  <script>
+    const firstText = "gl1tchghost";
+    const secondText = " -------> can u find me ;) ?";
+    let i = 0;
+    const speed = 150;
+    const usernameDiv = document.getElementById("username");
+    const inputDiv = document.getElementById("codeInput");
+    const hint = document.getElementById("hint");
+
+    function typeWriter(text, callback) {
+      if (i < text.length) {
+        usernameDiv.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(() => typeWriter(text, callback), speed);
+      } else {
+        if (callback) callback();
+      }
+    }
+
+    function revealHint() {
+      hint.style.display = "block";
+    }
+
+    typeWriter(firstText, () => {
+      i = 0;
+      setTimeout(() => {
+        typeWriter(secondText, () => {
+          inputDiv.style.display = "flex";
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>
